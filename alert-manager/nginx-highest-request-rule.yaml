@@ -58,7 +58,7 @@ spec:
               Số lượng request trong 1 giây vượt ngưỡng trên namespace
               nginx-server.
             summary: Nginx nhận quá nhiều  hơn 200 request/s
-          expr: rate(nginx_http_requests_total[1m]) > 200
+          expr: rate(nginx_http_requests_total[1m]) > 2000
           for: 1s
           labels:
             namespace: nginx-server
