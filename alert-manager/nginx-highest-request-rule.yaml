@@ -1,0 +1,65 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"monitoring.coreos.com/v1","kind":"PrometheusRule","metadata":{"annotations":{},"labels":{"release":"monitoring"},"name":"nginx-high-requests","namespace":"nginx-server"},"spec":{"groups":[{"name":"nginx-traffic","rules":[{"alert":"HighNginxRequestRate","annotations":{"description":"Số
+      lượng request trong 1 giây vượt ngưỡng trên namespace
+      nginx-server.","summary":"Nginx nhận quá nhiều request ({{ $value }}
+      req/s)"},"expr":"rate(nginx_http_requests_total[1m]) \u003e
+      0","for":"10s","labels":{"namespace":"nginx-server","severity":"critical"}}]}]}}
+    prometheus-operator-validated: 'true'
+  creationTimestamp: '2025-10-21T09:26:39Z'
+  generation: 11
+  labels:
+    release: monitoring
+  managedFields:
+    - apiVersion: monitoring.coreos.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:labels:
+            .: {}
+            f:release: {}
+        f:spec:
+          .: {}
+          f:groups:
+            .: {}
+            k:{"name":"nginx-traffic"}:
+              .: {}
+              f:name: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: '2025-10-21T10:36:12Z'
+    - apiVersion: monitoring.coreos.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:groups:
+            k:{"name":"nginx-traffic"}:
+              f:rules: {}
+      manager: agent
+      operation: Update
+      time: '2025-10-21T12:11:49Z'
+  name: nginx-high-requests
+  namespace: nginx-server
+  resourceVersion: '101838'
+  uid: 267735be-901f-4d3e-8999-4dc2e3220f9a
+spec:
+  groups:
+    - name: nginx-traffic
+      rules:
+        - alert: HighNginxRequestRate
+          annotations:
+            description: >-
+              Số lượng request trong 1 giây vượt ngưỡng trên namespace
+              nginx-server.
+            summary: Nginx nhận quá nhiều  hơn 200 request/s
+          expr: rate(nginx_http_requests_total[1m]) > 200
+          for: 1s
+          labels:
+            namespace: nginx-server
+            severity: critical

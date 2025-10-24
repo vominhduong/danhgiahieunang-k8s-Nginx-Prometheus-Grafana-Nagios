@@ -1,0 +1,72 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"monitoring.coreos.com/v1alpha1","kind":"AlertmanagerConfig","metadata":{"annotations":{},"labels":{"release":"monitoring"},"name":"gmail-alert","namespace":"nginx-server"},"spec":{"receivers":[{"emailConfigs":[{"authPassword":{"key":"password","name":"user"},"authUsername":"vominhduong2005@gmail.com","from":"vominhduong2005@gmail.com","requireTLS":true,"sendResolved":true,"smarthost":"smtp.gmail.com:587","to":"23520399@gm.uit.edu.vn"}],"name":"gmail-receiver"}],"route":{"groupBy":["alertname","namespace"],"groupInterval":"5m","groupWait":"30s","matchers":[{"matchType":"=","name":"namespace","value":"nginx-server"}],"receiver":"gmail-receiver","repeatInterval":"4h"}}}
+  creationTimestamp: '2025-10-21T09:54:28Z'
+  generation: 4
+  labels:
+    release: monitoring
+  managedFields:
+    - apiVersion: monitoring.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:labels:
+            .: {}
+            f:release: {}
+        f:spec:
+          .: {}
+          f:receivers: {}
+          f:route:
+            .: {}
+            f:groupBy: {}
+            f:matchers: {}
+            f:receiver: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: '2025-10-21T10:18:42Z'
+    - apiVersion: monitoring.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:route:
+            f:groupInterval: {}
+            f:groupWait: {}
+            f:repeatInterval: {}
+      manager: agent
+      operation: Update
+      time: '2025-10-21T12:08:26Z'
+  name: gmail-alert
+  namespace: nginx-server
+  resourceVersion: '101424'
+  uid: a35588ca-29f8-4e24-abd8-d7fc02a08cb3
+spec:
+  receivers:
+    - emailConfigs:
+        - authPassword:
+            key: password
+            name: user
+          authUsername: vominhduong2005@gmail.com
+          from: vominhduong2005@gmail.com
+          requireTLS: true
+          sendResolved: true
+          smarthost: smtp.gmail.com:587
+          to: 23520399@gm.uit.edu.vn
+      name: gmail-receiver
+  route:
+    groupBy:
+      - alertname
+      - namespace
+    groupInterval: 10s
+    groupWait: 0s
+    matchers:
+      - matchType: '='
+        name: namespace
+        value: nginx-server
+    receiver: gmail-receiver
+    repeatInterval: 60s
