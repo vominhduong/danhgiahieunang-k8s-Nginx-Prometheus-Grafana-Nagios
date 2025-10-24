@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    cattle.io/status: >-
+      {"Conditions":[{"Type":"ResourceQuotaInit","Status":"True","Message":"","LastUpdateTime":"2025-10-14T05:10:22Z"},{"Type":"InitialRolesPopulated","Status":"True","Message":"","LastUpdateTime":"2025-10-14T05:10:22Z"}]}
+    lifecycle.cattle.io/create.namespace-auth: 'true'
+  creationTimestamp: '2025-10-14T05:10:21Z'
+  finalizers:
+    - controller.cattle.io/namespace-auth
+  labels:
+    kubernetes.io/metadata.name: nginx-server
+  managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: kubectl-create
+      operation: Update
+      time: '2025-10-14T05:10:21Z'
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:cattle.io/status: {}
+            f:lifecycle.cattle.io/create.namespace-auth: {}
+          f:finalizers:
+            .: {}
+            v:"controller.cattle.io/namespace-auth": {}
+      manager: rancher
+      operation: Update
+      time: '2025-10-14T05:10:21Z'
+  name: nginx-server
+  resourceVersion: '4241'
+  uid: 2a7a0a22-a8e1-4351-b544-6f82b40bc1df
+spec:
+  finalizers:
+    - kubernetes
+status:
+  phase: Active
