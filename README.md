@@ -7,10 +7,12 @@ Giám sát trạng thái các node worker, master :
  - http port 30030(port triển khai nginx server).
  - Khả năng ssh
  - Trạng thái ping
-Prometheus
+### Prometheus
  - Thu thập các metric từ cụm k8s
  - Trực quan hóa dự liệu thu thập từ metrics
  - alertmanager
-Grafana
- -Trực quan dữ liệu dễ quan sát hơn
+### Grafana
+ - Trực quan dữ liệu dễ quan sát hơn
+### Rancher
+ - điều khiển cụm k8s cluster một cách trực quan bằng giao diện
 
