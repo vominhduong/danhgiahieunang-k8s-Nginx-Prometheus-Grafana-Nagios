@@ -15,4 +15,6 @@ Giám sát trạng thái các node worker, master :
  - Trực quan dữ liệu dễ quan sát hơn
 ### Rancher
  - điều khiển cụm k8s cluster một cách trực quan bằng giao diện
+<img width="1416" height="703" alt="image" src="https://github.com/user-attachments/assets/e3eae04b-2b24-4811-aaf7-f8de124c83ac" />
+
 
